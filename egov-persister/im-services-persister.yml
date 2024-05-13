@@ -7,7 +7,7 @@ serviceMaps:
     isTransaction: true
     queryMaps:
 
-    - query: INSERT INTO eg_incident_v2(id, tenantid, incidenttype, incidentsubtype, incidentid, additionaldetails, applicationstatus, district, block, phctype, phcsubtype, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+    - query: INSERT INTO eg_incident_v2(id, tenantid, incidenttype, incidentsubtype, incidentid, additionaldetails, applicationstatus, district, block, phctype, phcsubtype, createdby, createdtime, lastmodifiedby, lastmodifiedtime, comments) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
       basePath: incident
       jsonMaps:
       - jsonPath: $.incident.id
@@ -42,6 +42,8 @@ serviceMaps:
 
       - jsonPath: $.incident.auditDetails.lastModifiedTime
 
+      - jsonPath: $.incident.comments
+
 
   - version: 1.0
     description: Updates im service request in tables
@@ -49,7 +51,7 @@ serviceMaps:
     isTransaction: true
     queryMaps:
 
-    - query: UPDATE eg_incident_v2 SET incidenttype=?, incidentid=?, incidentsubtype=?, additionaldetails=?, applicationstatus=?, district=? , block=? , phctype=? , phcsubtype=?, lastmodifiedby=?, lastmodifiedtime=? WHERE id=?;
+    - query: UPDATE eg_incident_v2 SET incidenttype=?, incidentid=?, incidentsubtype=?, additionaldetails=?, applicationstatus=?, district=? , block=? , phctype=? , phcsubtype=?, lastmodifiedby=?, lastmodifiedtime=?, comments=? WHERE id=?;
       basePath: incident
       jsonMaps:
       - jsonPath: $.incident.incidentType
@@ -76,7 +78,6 @@ serviceMaps:
 
       - jsonPath: $.incident.auditDetails.lastModifiedTime
 
+      - jsonPath: $.incident.comments
+
       - jsonPath: $.incident.id
-
-
-    
