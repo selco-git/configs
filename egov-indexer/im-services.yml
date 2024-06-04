@@ -10,7 +10,7 @@ ServiceMaps:
         id: $.incident.incidentId
         jsonPath: $
         timeStampField: $.incident.auditDetails.createdTime
-        fieldsToBeMasked: ["$.service.citizen.userName", "$.service.citizen.name", "$.service.citizen.mobileNumber", "$.service.citizen.emailId"]
+        fieldsToBeMasked: ["$.incident.reporter.userName", "$.incident.reporter.name", "$.incident.reporter.mobileNumber", "$.incident.reporter.emailId"]
         customJsonMapping:
           indexMapping: {"Data":{"incident":{},"tenantId": "","auditDetails": {},"currentProcessInstance": {}}}
           fieldMapping:
