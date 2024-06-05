@@ -18,7 +18,7 @@ serviceMaps:
             district, block, phctype, phcsubtype, createdby, createdtime,
             lastmodifiedby, lastmodifiedtime, comments) VALUES (?, ?, ?, ?, ?,
             ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
-          basePath: incident
+          basePath: $.incident
           jsonMaps:
             - jsonPath: $.incident.id
             - jsonPath: $.incident.tenantId
@@ -54,7 +54,7 @@ serviceMaps:
             incidentsubtype=?, additionaldetails=?, applicationstatus=?,
             district=? , block=? , phctype=? , phcsubtype=?, lastmodifiedby=?,
             lastmodifiedtime=?, comments=? WHERE id=?;
-          basePath: incident
+          basePath: $.incident
           jsonMaps:
             - jsonPath: $.incident.incidentType
             - jsonPath: $.incident.incidentId
