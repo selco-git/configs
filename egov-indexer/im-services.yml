@@ -18,6 +18,10 @@ ServiceMaps:
             outJsonPath: $.Data.incident
           - inJsonPath: $.incident.tenantId
             outJsonPath: $.Data.tenantId
+          - inJsonPath: $.incident.district
+            outJsonPath: $.Data.ditrict
+          - inJsonPath: $.incident.block
+            outJsonPath: $.Data.block
           - inJsonPath: $.incident.auditDetails
             outJsonPath: $.Data.auditDetails
           externalUriMapping:
