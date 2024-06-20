@@ -16,8 +16,8 @@ serviceMaps:
             INSERT INTO eg_incident_v2(id, tenantid, incidenttype,
             incidentsubtype, incidentid, additionaldetails, applicationstatus,
             district, block, phctype, phcsubtype, createdby, createdtime,
-            lastmodifiedby, lastmodifiedtime, comments,accountid, reportertenant) VALUES (?, ?, ?, ?, ?,
-            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? , ? , ?);
+            lastmodifiedby, lastmodifiedtime, comments,accountid, reportertenant,reportertype) VALUES (?, ?, ?, ?, ?,
+            ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? , ? , ?, ?);
           basePath: $.incident
           jsonMaps:
             - jsonPath: $.incident.id
@@ -40,6 +40,7 @@ serviceMaps:
             - jsonPath: $.incident.comments
             - jsonPath: $.incident.accountId
             - jsonPath: $.incident.reporterTenant
+            - jsonPath: $.incident.reporterType
     - version: 1
       description: Updates im service request in tables
       fromTopic: update-im-request
