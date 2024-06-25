@@ -22,6 +22,10 @@ ServiceMaps:
             outJsonPath: $.Data.ditrict
           - inJsonPath: $.incident.block
             outJsonPath: $.Data.block
+          - inJsonPath: $.incident.phcType
+            outJsonPath: $.Data.phcType
+          - inJsonPath: $.@timestamp
+            outJsonPath: $.Data.@timestamp  
           - inJsonPath: $.incident.auditDetails
             outJsonPath: $.Data.auditDetails
           externalUriMapping:
