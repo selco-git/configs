@@ -19,12 +19,12 @@ ServiceMaps:
           - inJsonPath: $.incident.tenantId
             outJsonPath: $.Data.tenantId
           - inJsonPath: $.incident.district
-            outJsonPath: $.Data.ditrict
+            outJsonPath: $.Data.district
           - inJsonPath: $.incident.block
             outJsonPath: $.Data.block
           - inJsonPath: $.incident.phcType
             outJsonPath: $.Data.phcType
-          - inJsonPath: $.@timestamp
+          - inJsonPath: $.incident.auditDetails.createdTime
             outJsonPath: $.Data.@timestamp  
           - inJsonPath: $.incident.auditDetails
             outJsonPath: $.Data.auditDetails
