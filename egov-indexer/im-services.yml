@@ -24,7 +24,7 @@ ServiceMaps:
             outJsonPath: $.Data.block
           - inJsonPath: $.incident.phcType
             outJsonPath: $.Data.phcType
-          - inJsonPath: $.incident.auditDetails.createdTime
+          - inJsonPath: $.@timestamp
             outJsonPath: $.Data.@timestamp  
           - inJsonPath: $.incident.auditDetails
             outJsonPath: $.Data.auditDetails
