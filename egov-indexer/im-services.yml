@@ -48,20 +48,20 @@ ServiceMaps:
         customJsonMapping:
           indexMapping: {"Data":{"incident":{},"tenantId": "","auditDetails": {},"currentProcessInstance": {}}}
           fieldMapping:
-         - inJsonPath: $.incident
-            outJsonPath: $.Data.incident
-          - inJsonPath: $.incident.tenantId
-            outJsonPath: $.Data.tenantId
-          - inJsonPath: $.incident.district
-            outJsonPath: $.Data.district
-          - inJsonPath: $.incident.block
-            outJsonPath: $.Data.block
-          - inJsonPath: $.incident.phcType
-            outJsonPath: $.Data.phcType
-          - inJsonPath: $.@timestamp
-            outJsonPath: $.Data.@timestamp  
-          - inJsonPath: $.incident.auditDetails
-            outJsonPath: $.Data.auditDetails
+            - inJsonPath: $.incident
+              outJsonPath: $.Data.incident
+            - inJsonPath: $.incident.tenantId
+              outJsonPath: $.Data.tenantId
+            - inJsonPath: $.incident.district
+              outJsonPath: $.Data.district
+            - inJsonPath: $.incident.block
+              outJsonPath: $.Data.block
+            - inJsonPath: $.incident.phcType
+              outJsonPath: $.Data.phcType
+            - inJsonPath: $.@timestamp
+              outJsonPath: $.Data.@timestamp  
+            - inJsonPath: $.incident.auditDetails
+              outJsonPath: $.Data.auditDetails
           externalUriMapping:
             - path: http://egov-workflow-v2.core-dev:8080/egov-workflow-v2/egov-wf/process/_search
               queryParam: businessIds=$.incident.incidentId,history=true,tenantId=$.incident.tenantId
@@ -83,20 +83,20 @@ ServiceMaps:
         customJsonMapping:
           indexMapping: {"Data":{"incident":{},"tenantId": "","auditDetails": {},"currentProcessInstance": {}}}
           fieldMapping:
-         - inJsonPath: $.incident
-            outJsonPath: $.Data.incident
-          - inJsonPath: $.incident.tenantId
-            outJsonPath: $.Data.tenantId
-          - inJsonPath: $.incident.district
-            outJsonPath: $.Data.district
-          - inJsonPath: $.incident.block
-            outJsonPath: $.Data.block
-          - inJsonPath: $.incident.phcType
-            outJsonPath: $.Data.phcType
-          - inJsonPath: $.@timestamp
-            outJsonPath: $.Data.@timestamp  
-          - inJsonPath: $.incident.auditDetails
-            outJsonPath: $.Data.auditDetails
+            - inJsonPath: $.incident
+              outJsonPath: $.Data.incident
+            - inJsonPath: $.incident.tenantId
+              outJsonPath: $.Data.tenantId
+            - inJsonPath: $.incident.district
+              outJsonPath: $.Data.district
+            - inJsonPath: $.incident.block
+              outJsonPath: $.Data.block
+            - inJsonPath: $.incident.phcType
+              outJsonPath: $.Data.phcType
+            - inJsonPath: $.@timestamp
+              outJsonPath: $.Data.@timestamp  
+            - inJsonPath: $.incident.auditDetails
+              outJsonPath: $.Data.auditDetails
           externalUriMapping:
             - path: http://egov-workflow-v2.core-dev:8080/egov-workflow-v2/egov-wf/process/_search
               queryParam: businessIds=$.service.serviceRequestId,history=true,tenantId=$.service.tenantId
