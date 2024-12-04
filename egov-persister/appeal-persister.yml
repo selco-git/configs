@@ -1,0 +1,112 @@
+serviceMaps:
+ serviceName: pgr-services
+ mappings:
+ - version: 1.0
+   description: Persists Appeal details in application table
+   fromTopic: save-appeal-request
+   isTransaction: true
+   queryMaps:
+
+       - query: INSERT INTO eg_pgr_appeal (id, tenantid, grievanceid, "comments", accountid, businessservice, additionaldetails, status, applicationo, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+         basePath: Appeal
+         jsonMaps:
+          - jsonPath: $.Appeal.id
+
+          - jsonPath: $.Appeal.tenantId
+          
+          - jsonPath: $.Appeal.grievanceId
+          
+          - jsonPath: $.Appeal.comments
+
+          - jsonPath: $.Appeal.accountId
+
+          - jsonPath: $.Appeal.businessService
+
+          - jsonPath: $.Appeal.additionalDetails
+            type: JSON
+            dbType: JSONB  
+
+          - jsonPath: $.Appeal.status
+
+          - jsonPath: $.Appeal.applicationNumber
+
+          - jsonPath: $.Appeal.auditDetails.createdBy
+
+          - jsonPath: $.Appeal.auditDetails.createdTime
+
+          - jsonPath: $.Appeal.auditDetails.lastModifiedBy
+
+          - jsonPath: $.Appeal.auditDetails.lastModifiedTime
+
+ - version: 1.0
+   description: updates Appeal details in application table
+   fromTopic: update-appeal-request
+   isTransaction: true
+   queryMaps:
+       - query: INSERT INTO eg_pgr_appeal_document (id, documenttype, filestoreid, appealid, additionaldetails, createdby, lastmodifiedby, createdtime, lastmodifiedtime) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT (id) DO UPDATE SET documenttype =?,  fileStoreId =?, additionalDetails=?, lastmodifiedby =?, lastmodifiedtime =?;
+         basePath: Appeal.documents.*
+         jsonMaps:
+          
+           - jsonPath: $.Appeal.documents.*.id
+  
+           - jsonPath: $.Appeal.documents.*.documentType
+  
+           - jsonPath: $.Appeal.documents.*.fileStoreId
+
+           - jsonPath: $.Appeal.id
+  
+           - jsonPath: $.Appeal.documents.*.additionalDetails
+             type: JSON
+             dbType: JSONB
+  
+           - jsonPath: $.Appeal.auditDetails.createdBy
+  
+           - jsonPath: $.Appeal.auditDetails.lastModifiedBy
+  
+           - jsonPath: $.Appeal.auditDetails.createdTime
+
+           - jsonPath: $.Appeal.auditDetails.lastModifiedTime
+
+           - jsonPath: $.Appeal.documents.*.documentType
+
+           - jsonPath: $.Appeal.documents.*.fileStoreId
+  
+           - jsonPath: $.Appeal.documents.*.additionalDetails
+             type: JSON
+             dbType: JSONB
+
+           - jsonPath: $.Appeal.auditDetails.lastModifiedBy
+
+           - jsonPath: $.Appeal.auditDetails.lastModifiedTime  
+
+       - query: UPDATE eg_pgr_appeal SET tenantid=?, grievanceid=?, "comments"=?, accountid=?, businessservice=?, additionaldetails=?, status=?, applicationo=?, createdby=?, createdtime=?, lastmodifiedby=?, lastmodifiedtime=? WHERE id = ?
+         basePath: Appeal
+         jsonMaps:
+
+          - jsonPath: $.Appeal.tenantId
+          
+          - jsonPath: $.Appeal.grievanceId
+
+          - jsonPath: $.Appeal.comments
+
+          - jsonPath: $.Appeal.accountId
+
+          - jsonPath: $.Appeal.businessService
+
+          - jsonPath: $.Appeal.additionalDetails
+            type: JSON
+            dbType: JSONB  
+
+          - jsonPath: $.Appeal.status
+
+          - jsonPath: $.Appeal.applicationNumber
+
+          - jsonPath: $.Appeal.auditDetails.createdBy
+  
+          - jsonPath: $.Appeal.auditDetails.createdTime
+
+          - jsonPath: $.Appeal.auditDetails.lastModifiedBy
+
+          - jsonPath: $.Appeal.auditDetails.lastModifiedTime
+
+          - jsonPath: $.Appeal.id     
