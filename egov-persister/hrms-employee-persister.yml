@@ -231,7 +231,26 @@ serviceMaps:
 
       - jsonPath: $.Employees.*.jurisdictions.*.auditDetails.lastModifiedDate
 
+    - query: INSERT INTO eg_user_office_map (user_id, office_id, active, NAA_code, created_by, created_date, last_modified_by, last_modified_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?);
 
+      basePath: Employees.*.office
+      jsonMaps:
+
+      - jsonPath: Employees.*.office.userId
+
+      - jsonPath: Employees.*.office.officeId
+
+      - jsonPath: Employees.*.office.active
+
+      - jsonPath: Employees.*.office.naaUserId
+
+      - jsonPath: Employees.*.office.auditDetails.createdBy
+
+      - jsonPath: Employees.*.office.auditDetails.createdDate
+
+      - jsonPath: Employees.*.office.auditDetails.lastModifiedBy
+
+      - jsonPath: Employees.*.office.auditDetails.lastModifiedDate
 
 
   - version: 1.0
