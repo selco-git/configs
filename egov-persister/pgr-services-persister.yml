@@ -38,30 +38,16 @@ serviceMaps:
 
       - jsonPath: $.service.auditDetails.lastModifiedTime
 
-    - query: INSERT INTO eg_pgr_address_v2(id, tenantid, parentid, doorno, plotno, buildingname, street, landmark, city, pincode, locality, district, region, state, country, latitude, longitude, additionaldetails, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+    - query: INSERT INTO eg_pgr_address_v2(id, tenantid, parentid, doorno, plotno, buildingname, street, landmark, city, pincode, locality, district, region, state, country, latitude, longitude, additionaldetails, createdby, createdtime, lastmodifiedby, lastmodifiedtime) VALUES (?, ?, ?,null, null,null,null,null, ?, null,null, ?, ?, ?, null, ?, ?, null, ?, ?, ?, ?);
       basePath: service.address
       jsonMaps:
       - jsonPath: $.service.address.id
 
-      - jsonPath: $.service.address.tenantId
+      - jsonPath: $.service.tenantId
 
       - jsonPath: $.service.id
-
-      - jsonPath: $.service.address.doorNo
-
-      - jsonPath: $.service.address.plotNo
-
-      - jsonPath: $.service.address.buildingName
-
-      - jsonPath: $.service.address.street
-
-      - jsonPath: $.service.address.landmark
-
+      
       - jsonPath: $.service.address.city
-
-      - jsonPath: $.service.address.pincode
-
-      - jsonPath: $.service.address.locality.code
 
       - jsonPath: $.service.address.district
 
@@ -69,16 +55,10 @@ serviceMaps:
 
       - jsonPath: $.service.address.state
 
-      - jsonPath: $.service.address.country
-
       - jsonPath: $.service.address.geoLocation.latitude
 
       - jsonPath: $.service.address.geoLocation.longitude
-
-      - jsonPath: $.service.address.additionDetails
-        type: JSON
-        dbType: JSONB
-
+      
       - jsonPath: $.service.auditDetails.createdBy
 
       - jsonPath: $.service.auditDetails.createdTime
