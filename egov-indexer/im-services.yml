@@ -120,7 +120,7 @@ ServiceMaps:
     indexes:
       - name: im-services
         type: general
-        id:  $.ProcessInstances[0]
+        id:  $.ProcessInstances[0].businessId
         jsonPath: $
         customJsonMapping:
           indexMapping: {"Data":{"currentProcessInstance": {}}}
