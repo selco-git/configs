@@ -121,10 +121,30 @@ ServiceMaps:
       - name: im-services
         type: general
         id:  $.ProcessInstances[0].businessId
-        jsonPath: $
+        jsonPath: $.ProcessInstances.*
         customJsonMapping:
-          indexMapping: {"Data":{"currentProcessInstance": {}}}
+          indexMapping: {"Data":{"incident":{},"tenantId": "","auditDetails": {},"currentProcessInstance": {}}}
           fieldMapping:
           - inJsonPath: $.ProcessInstances[0]
             outJsonPath: $.Data.currentProcessInstance
+          externalUriMapping:
+            - path: http://im-services.core-dev:8080/im-services/v2/request/_search
+              queryParam: incidentId=$.ProcessInstances[0].businessId,tenantId=$.ProcessInstances[0].tenantId
+              apiRequest: { "RequestInfo": { "apiId": "org.egov.im","ver": "1.0","ts": 1502890899493,"action": "asd","did": "4354648646","key": "xyz","msgId": "654654","requesterId": "61","authToken": "d9994555-7656-4a67-ab3a-a952a0d4dfc8","userInfo": { "id": 1,"uuid": "1fec8102-0e02-4d0a-b283-cd80d5dab067","type": "EMPLOYEE","tenantId": "default","roles": [ { "name": "Employee","code": "EMPLOYEE","tenantId": "default" } ] } } }
+              uriResponseMapping:
+                - inJsonPath: $.IncidentWrappers[0]
+                  outJsonPath: $.Data.incident
+                - inJsonPath: $.IncidentWrappers[0].tenantId
+                  outJsonPath: $.Data.tenantId
+                - inJsonPath: $.IncidentWrappers[0]t.district
+                  outJsonPath: $.Data.district
+                - inJsonPath: $.IncidentWrappers[0].block
+                  outJsonPath: $.Data.block
+                - inJsonPath: $.IncidentWrappers[0].phcType
+                  outJsonPath: $.Data.phcType
+                - inJsonPath: $.@timestamp
+                  outJsonPath: $.Data.@timestamp  
+                - inJsonPath: $.IncidentWrappers[0].auditDetails
+                  outJsonPath: $.Data.auditDetails
+                  
         
