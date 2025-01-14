@@ -74,18 +74,4 @@ serviceMaps:
             - jsonPath: $.incident.auditDetails.lastModifiedTime
             - jsonPath: $.incident.comments
             - jsonPath: $.incident.id
-    - version: 1
-      description: Updates im status for auto escalate
-      fromTopic: im-auto-escalation
-      isTransaction: true
-      queryMaps:
-        - query: >-
-            UPDATE eg_incident_v2 SET applicationstatus=?, lastmodifiedby=?,
-            lastmodifiedtime=? WHERE incidentId=? AND tenantId=?;
-          basePath: ProcessInstances.*
-          jsonMaps:
-            - jsonPath: $.ProcessInstances.*.state.applicationStatus
-            - jsonPath: $.ProcessInstances.*.auditDetails.lastModifiedBy
-            - jsonPath: $.ProcessInstances.*.auditDetails.lastModifiedTime
-            - jsonPath: $.ProcessInstances.*.businessId
-            - jsonPath: $.ProcessInstances.*.tenantId
+   
