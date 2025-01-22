@@ -2,7 +2,7 @@ ServiceMaps:
  serviceName: Incident Management - rainmaker
  version: 1.0.0
  mappings:
-  - topic: save-im-request
+  - topic: save-im-request-indexer
     configKey: INDEX
     indexes:
       - name: im-services
@@ -36,7 +36,7 @@ ServiceMaps:
                 - inJsonPath: $.ProcessInstances[0]
                   outJsonPath: $.Data.currentProcessInstance
 
-  - topic: update-im-request
+  - topic: update-im-request-indexer
     configKey: INDEX
     indexes:
       - name: im-services
